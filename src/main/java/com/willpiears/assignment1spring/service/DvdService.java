@@ -18,4 +18,9 @@ public class DvdService
     {
         return this.dvdEntryRepository.findAll();
     }
+
+    public DvdEntry findDvdEntryById(Integer id)
+    {
+        return this.dvdEntryRepository.findDvdEntryById(id);
+    }
 }

@@ -18,7 +18,12 @@ public class DvdsController
     }
 
     @GetMapping ("/dvds")
-    public List<DvdEntry> retrieveMapping () {
+    public List<DvdEntry> retrieveAllDvds () {
         return dvdService.findAllEntries();
+    }
+
+    @GetMapping ("/dvds/{id}")
+    public DvdEntry retrieveDvdEntryById (@PathVariable ("id") Integer id) {
+        return this.dvdService.findDvdEntryById(id);
     }
 }

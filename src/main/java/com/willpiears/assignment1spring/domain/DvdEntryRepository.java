@@ -8,4 +8,6 @@ public interface DvdEntryRepository extends CrudRepository <DvdEntry, Integer>
 {
     @Override
     List <DvdEntry> findAll();
+
+    DvdEntry findDvdEntryById(Integer id);
 }
