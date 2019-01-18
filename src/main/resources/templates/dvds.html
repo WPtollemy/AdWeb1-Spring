@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>DVDs</title>
+
+        <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <h1>DVD System</h1>
+
+        <div th:if="${entries.isEmpty()}">
+            <p>There are no films in the System. What a pity.</p>
+        </div>
+
+        <div th:if="${!entries.isEmpty()}">
+            <table class="table table-stiped">
+                <tr>
+                    <th>Title</th><th>Description</th><th></th><th></th>
+                </tr>
+                <tr th:each="entry: ${entries}">
+                    <td th:text="${entry.title}"></td>
+                    <td th:text="${entry.description}"></td>
+                    <td><a class="btn btn-danger" th:href="@{'/delete/' + ${entry.id}}">Delete</a></td>
+                    <td><a class-"btn btn-warning" th:href="@{'/update/' + ${entry.id}}">Update</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Add a new DVD</h2>
+
+        <form th:object="${newEntry}" method="post">
+            <label>Title: </label>
+            <input type="text" size="32" th:field="*{title}" />
+            <label>Description: </label>
+            <input type="text" size="64" th:field="*{description}" />
+
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+            <p class="warning" th:if="${#fields.hasErrors('title')}">Title cannot be empty.</p>
+            <p class="warning" th:if="${#fields.hasErrors('description')}">Description cannot be empty.</p>
+        </form>
+
+    </body>
+</html>
+
