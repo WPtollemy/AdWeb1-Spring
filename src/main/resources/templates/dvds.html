@@ -22,7 +22,7 @@
                 <tr th:each="entry: ${entries}">
                     <td th:text="${entry.title}"></td>
                     <td th:text="${entry.description}"></td>
-                    <td><a class="btn btn-danger" th:href="@{'/delete/' + ${entry.id}}">Delete</a></td>
+                    <td><a class="btn btn-danger" th:href="@{'/dvds/delete/' + ${entry.id}}">Delete</a></td>
                     <td><a class-"btn btn-warning" th:href="@{'/update/' + ${entry.id}}">Update</a></td>
                 </tr>
             </table>

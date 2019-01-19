@@ -55,7 +55,7 @@ public class DvdsController
         this.dvdService.deleteDvdEntryById(id);
     }
 
-    @GetMapping ("/delete/{id}")
+    @GetMapping ("/dvds/delete/{id}")
     public String deleteComment (@PathVariable Integer id) {
         this.dvdService.deleteDvdEntryById (id);
         return HOMEPAGE_REDIRECT;
