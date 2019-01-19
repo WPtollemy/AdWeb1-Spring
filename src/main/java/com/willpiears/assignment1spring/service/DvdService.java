@@ -23,4 +23,9 @@ public class DvdService
     {
         return this.dvdEntryRepository.findDvdEntryById(id);
     }
+
+    public void save(DvdEntry newEntry)
+    {
+        this.dvdEntryRepository.save(newEntry);
+    }
 }
