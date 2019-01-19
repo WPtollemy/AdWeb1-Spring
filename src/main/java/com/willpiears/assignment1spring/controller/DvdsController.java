@@ -35,4 +35,9 @@ public class DvdsController
     public DvdEntry retrieveDvdEntryById (@PathVariable ("id") Integer id) {
         return this.dvdService.findDvdEntryById(id);
     }
+
+    @PostMapping ("/dvds")
+    public void addDvd (@RequestBody DvdEntry dvdEntry) {
+        this.dvdService.save(dvdEntry);
+    }
 }
