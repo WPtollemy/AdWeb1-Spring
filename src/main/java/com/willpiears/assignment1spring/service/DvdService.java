@@ -28,4 +28,9 @@ public class DvdService
     {
         this.dvdEntryRepository.save(newEntry);
     }
+
+    public void deleteDvdEntryById(Integer id)
+    {
+        this.dvdEntryRepository.deleteDvdEntryById(id);
+    }
 }

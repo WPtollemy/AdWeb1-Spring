@@ -15,6 +15,7 @@ public class DvdsController
     private DvdService dvdService;
 
     private static final String DVD_TEMPLATE = "dvds";
+    private static final String HOMEPAGE_REDIRECT = "redirect:/";
 
     @GetMapping ("/")
     public String displayDvds (Model model) {
@@ -45,6 +46,18 @@ public class DvdsController
     @PostMapping ("/dvds/create")
     public String createDvd (@ModelAttribute(value="newEntry") DvdEntry dvdEntry) {
         this.dvdService.save(dvdEntry);
-        return "redirect:/";
+        return HOMEPAGE_REDIRECT;
+    }
+
+    @ResponseBody
+    @DeleteMapping ("dvds/{id}")
+    public void deleteDvdEntryById (@PathVariable ("id") Integer id) {
+        this.dvdService.deleteDvdEntryById(id);
+    }
+
+    @GetMapping ("/delete/{id}")
+    public String deleteComment (@PathVariable Integer id) {
+        this.dvdService.deleteDvdEntryById (id);
+        return HOMEPAGE_REDIRECT;
     }
 }
