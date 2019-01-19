@@ -36,8 +36,15 @@ public class DvdsController
         return this.dvdService.findDvdEntryById(id);
     }
 
+    @ResponseBody
     @PostMapping ("/dvds")
     public void addDvd (@RequestBody DvdEntry dvdEntry) {
         this.dvdService.save(dvdEntry);
+    }
+
+    @PostMapping ("/dvds/create")
+    public String createDvd (@ModelAttribute(value="newEntry") DvdEntry dvdEntry) {
+        this.dvdService.save(dvdEntry);
+        return "redirect:/";
     }
 }

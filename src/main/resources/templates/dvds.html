@@ -30,7 +30,7 @@
 
         <h2>Add a new DVD</h2>
 
-        <form th:object="${newEntry}" method="post">
+        <form th:object="${newEntry}" action="/dvds/create" method="POST">
             <label>Title: </label>
             <input type="text" size="32" th:field="*{title}" />
             <label>Description: </label>
