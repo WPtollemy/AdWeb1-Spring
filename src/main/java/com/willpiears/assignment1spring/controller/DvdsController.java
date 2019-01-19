@@ -60,4 +60,10 @@ public class DvdsController
         this.dvdService.deleteDvdEntryById (id);
         return HOMEPAGE_REDIRECT;
     }
+
+    @ResponseBody
+    @PatchMapping ("/dvds")
+    public void updateDvd (@RequestBody DvdEntry dvdEntry) {
+        this.dvdService.save(dvdEntry);
+    }
 }
