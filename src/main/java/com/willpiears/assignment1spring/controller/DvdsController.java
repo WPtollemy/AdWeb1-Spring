@@ -15,6 +15,7 @@ public class DvdsController
     private DvdService dvdService;
 
     private static final String DVD_TEMPLATE = "dvds";
+    private static final String EDIT_TEMPLATE = "editDvds";
     private static final String HOMEPAGE_REDIRECT = "redirect:/";
 
     @GetMapping ("/")
@@ -65,5 +66,22 @@ public class DvdsController
     @PatchMapping ("/dvds")
     public void updateDvd (@RequestBody DvdEntry dvdEntry) {
         this.dvdService.save(dvdEntry);
+    }
+
+    @GetMapping ("/dvds/edit/{id}")
+    public String displayEditDvds (@PathVariable Integer id, Model model) {
+        model.addAttribute ("entry", this.dvdService.findDvdEntryById(id));
+        model.addAttribute ("newEntry", new DvdEntry());
+
+        return EDIT_TEMPLATE;
+    }
+
+    @PostMapping ("/dvds/update/{id}")
+    public String saveUpdatedDvd (
+            @PathVariable Integer id,
+            @ModelAttribute(value="newEntry") DvdEntry dvdEntry
+            ) {
+        this.dvdService.save(dvdEntry);
+        return HOMEPAGE_REDIRECT;
     }
 }
