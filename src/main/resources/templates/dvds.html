@@ -15,15 +15,20 @@
         </div>
 
         <div th:if="${!entries.isEmpty()}">
-            <table class="table table-stiped">
-                <tr>
-                    <th>Title</th><th>Description</th><th></th><th></th>
-                </tr>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
                 <tr th:each="entry: ${entries}">
+                    <th scope="row" th:text="${entry.id}"></th>
                     <td th:text="${entry.title}"></td>
                     <td th:text="${entry.description}"></td>
                     <td><a class="btn btn-danger" th:href="@{'/dvds/delete/' + ${entry.id}}">Delete</a></td>
-                    <td><a class-"btn btn-warning" th:href="@{'/update/' + ${entry.id}}">Update</a></td>
+                    <td><a class-"btn btn-warning" th:href="@{'/dvds/edit/' + ${entry.id}}">Update</a></td>
                 </tr>
             </table>
         </div>
