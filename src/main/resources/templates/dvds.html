@@ -10,15 +10,13 @@
 
     </head>
     <body>
-        <h1>DVD System</h1>
+        <h1 th:inline="text">DVD System - [[${#httpServletRequest.remoteUser}]]!</h1>
 
         <div th:if="${entries.isEmpty()}">
             <p>There are no films in the System. What a pity.</p>
         </div>
 
-
-
-        <div style="padding-top: 1em; padding-left: 1em">
+        <div style="padding-top: 1em; padding-left: 1em; padding-bottom: 1em;">
             <div class="row">
                 <div class="col-sm-8">
                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add DVD</button>
@@ -50,8 +48,6 @@
             </div>
         </div>
 
-
-
         <div th:if="${!entries.isEmpty()}">
             <table class="table table-dark">
                 <thead>
@@ -70,6 +66,10 @@
                 </tr>
             </table>
         </div>
+
+        <form th:action="@{/logout}" method="post" style="padding-left: 1em">
+            <input class="btn btn-warning" type="submit" value="Sign Out"/>
+        </form>
 
     </body>
 </html>
