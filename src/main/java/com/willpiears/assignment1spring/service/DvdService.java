@@ -33,4 +33,9 @@ public class DvdService
     {
         this.dvdEntryRepository.deleteDvdEntryById(id);
     }
+
+    public List<DvdEntry> findDvdEntriesByTitle(String title)
+    {
+        return this.dvdEntryRepository.findDvdEntriesByTitle(title);
+    }
 }

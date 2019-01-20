@@ -84,4 +84,12 @@ public class DvdsController
         this.dvdService.save(dvdEntry);
         return HOMEPAGE_REDIRECT;
     }
+
+    @GetMapping ("/dvds/search")
+    public String retrieveMatchingDvds (@RequestParam (name = "searchTitle") String title, Model model) {
+        model.addAttribute ("entries", this.dvdService.findDvdEntriesByTitle(title));
+        model.addAttribute ("newEntry", new DvdEntry());
+
+        return DVD_TEMPLATE;
+    }
 }

@@ -12,6 +12,8 @@ public interface DvdEntryRepository extends CrudRepository <DvdEntry, Integer>
 
     DvdEntry findDvdEntryById(Integer id);
 
+    List <DvdEntry> findDvdEntriesByTitle(String title);
+
     @Transactional
     void deleteDvdEntryById(Integer id);
 }
