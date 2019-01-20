@@ -17,6 +17,7 @@ public class DvdsController
     private static final String DVD_TEMPLATE = "dvds";
     private static final String EDIT_TEMPLATE = "editDvds";
     private static final String HOMEPAGE_REDIRECT = "redirect:/";
+    private static final String LOGIN_TEMPLATE = "login";
 
     @GetMapping ("/")
     public String displayDvds (Model model) {
@@ -24,6 +25,11 @@ public class DvdsController
         model.addAttribute ("newEntry", new DvdEntry());
 
         return DVD_TEMPLATE;
+    }
+
+    @GetMapping ("/login")
+    public String displayLogin () {
+        return LOGIN_TEMPLATE;
     }
 
     @ResponseBody
