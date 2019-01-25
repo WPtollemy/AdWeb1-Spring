@@ -1,9 +1,8 @@
 package com.willpiears.assignment1spring.domain;
 
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 public interface DvdEntryRepository extends CrudRepository <DvdEntry, Integer>
 {
@@ -12,7 +11,7 @@ public interface DvdEntryRepository extends CrudRepository <DvdEntry, Integer>
 
     DvdEntry findDvdEntryById(Integer id);
 
-    List <DvdEntry> findDvdEntriesByTitle(String title);
+    List <DvdEntry> findByTitleContaining(String title);
 
     @Transactional
     void deleteDvdEntryById(Integer id);

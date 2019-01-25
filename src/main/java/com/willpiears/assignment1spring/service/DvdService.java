@@ -2,11 +2,9 @@ package com.willpiears.assignment1spring.service;
 
 import com.willpiears.assignment1spring.domain.DvdEntry;
 import com.willpiears.assignment1spring.domain.DvdEntryRepository;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class DvdService
@@ -34,8 +32,9 @@ public class DvdService
         this.dvdEntryRepository.deleteDvdEntryById(id);
     }
 
-    public List<DvdEntry> findDvdEntriesByTitle(String title)
+    //Find titles similar;for the search route
+    public List<DvdEntry> findByTitleContaining(String title)
     {
-        return this.dvdEntryRepository.findDvdEntriesByTitle(title);
+        return this.dvdEntryRepository.findByTitleContaining(title);
     }
 }

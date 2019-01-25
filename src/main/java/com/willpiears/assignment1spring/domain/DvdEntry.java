@@ -1,8 +1,7 @@
 package com.willpiears.assignment1spring.domain;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.*;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table (name = "dvds")
