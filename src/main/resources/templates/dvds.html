@@ -10,19 +10,12 @@
 
     </head>
     <body>
-
-
         <nav class="navbar navbar-inverse">
             <a class="navbar-brand" href="/">
                 Home
             </a>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto col-md-11">
-
-                </ul>
-
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right ml-auto">
                     <!-- Authentication Links -->
@@ -46,8 +39,6 @@
                 </ul>
             </div>
         </nav>
-
-
 
         <h1 th:inline="text">DVD System!</h1>
 
@@ -105,10 +96,6 @@
                 </tr>
             </table>
         </div>
-
-        <form th:action="@{/logout}" method="post" style="padding-left: 1em">
-            <input class="btn btn-warning" type="submit" value="Sign Out"/>
-        </form>
 
     </body>
 </html>
