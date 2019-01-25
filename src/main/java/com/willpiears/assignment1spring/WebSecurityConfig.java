@@ -28,6 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .permitAll();
     }
 
+    //Adds two temporary users to memory
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
